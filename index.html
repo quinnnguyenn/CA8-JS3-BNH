@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Quinn Nguyen">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bear Ninja Hunter</title>
+</head>
+
+<body>
+    <p id="results">results</p>
+    <script>
+        let uname = prompt("Welcome to Bear Ninja Hunter! Please enter your name to get started:");
+        //asks what the users name is
+
+        let amessage = `Hi ${uname}! Let's play!`;
+        alert(amessage)
+        //greets the player
+
+        let uchoice = prompt("Who are you: Bear, Ninja, or Hunter?")
+        //prompt for game choice
+
+        let compchoice = "Bear"
+        //computer choice for now
+
+        let message = "";
+
+        switch (uchoice) {
+            case "Bear":
+                if (compchoice === "Bear"){
+                    message = "It's a tie!!"
+                }else if (compchoice === "Ninja"){
+                    message = "You win!!"
+                }else if (compchoice === "Hunter"){
+                    message = "You lose!!"
+                }
+        }
+        //script if the player chooses bear
+
+                switch (uchoice) {
+            case "Ninja":
+                if (compchoice === "Bear"){
+                    message = "You lose!!"
+                }else if (compchoice === "Ninja"){
+                    message = "It's a tie!!"
+                }else if (compchoice === "Hunter"){
+                    message = "You win!!"
+                }
+        }
+        //script if the player chooses ninja
+
+                switch (uchoice) {
+            case "Hunter":
+                if (compchoice === "Bear"){
+                    message = "You win!!"
+                }else if (compchoice === "Ninja"){
+                    message = "You lose!!"
+                }else if (compchoice === "Hunter"){
+                    message = "You lose!!"
+                }
+        }
+        //script if the player chooses hunter
+
+
+
+        document.getElementById("results").innerHTML 
+        = `${uname}, you picked ${uchoice}!<br>The computer chose ${compchoice}<br>${message}`;
+        //print on the webpage
+
+        console.log(`${uname}, you picked ${uchoice}!`); 
+        console.log(`The computer picked ${compchoice}`)
+        console.log(`${message}`)
+        //print on console
+    </script>
+</body>
+
+</html>
