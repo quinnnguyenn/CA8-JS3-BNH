@@ -9,20 +9,18 @@
 </head>
 
 <body>
-    <p id="results">results</p>
+    <p id="results"></p>
     <script>
+        const choices = ["Bear", "Ninja", "Hunter"];
+
         let uname = prompt("Welcome to Bear Ninja Hunter! Please enter your name to get started:");
-        //asks what the users name is
-
         let amessage = `Hi ${uname}! Let's play!`;
-        alert(amessage)
-        //greets the player
+        alert(amessage);
 
-        let uchoice = prompt("Who are you: Bear, Ninja, or Hunter?")
-        //prompt for game choice
+        let uchoice = prompt("Who are you: Bear, Ninja, or Hunter?");
+        uchoice = uchoice.charAt(0).toUpperCase() + uchoice.slice(1).toLowerCase();
 
-        let compchoice = "Bear"
-        //computer choice for now
+        let compchoice = choices[Math.floor(Math.random() * choices.length)];
 
         let message = "";
 
