@@ -17,8 +17,13 @@
         let amessage = `Hi ${uname}! Let's play!`;
         alert(amessage);
 
+        let playAgain = "Yes";
+        let output = "";
+
         let uchoice = prompt("Who are you: Bear, Ninja, or Hunter?");
         uchoice = uchoice.charAt(0).toUpperCase() + uchoice.slice(1).toLowerCase();
+
+        while (playAgain === "Yes") {
 
         let compchoice = choices[Math.floor(Math.random() * choices.length)];
 
@@ -70,6 +75,8 @@
         console.log(`The computer picked ${compchoice}`)
         console.log(`${message}`)
         //print on console
+
+    }
     </script>
 </body>
 
