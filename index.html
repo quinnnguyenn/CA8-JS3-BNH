@@ -20,10 +20,11 @@
         let playAgain = "Yes";
         let output = "";
 
+                while (playAgain === "Yes") {
+
         let uchoice = prompt("Who are you: Bear, Ninja, or Hunter?");
         uchoice = uchoice.charAt(0).toUpperCase() + uchoice.slice(1).toLowerCase();
 
-        while (playAgain === "Yes") {
 
         let compchoice = choices[Math.floor(Math.random() * choices.length)];
 
