@@ -11,63 +11,96 @@
 <body>
     <p id="results"></p>
     <script>
+
+        <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Quinn Nguyen">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bear Ninja Hunter</title>
+</head>
+
+<body>
+    <p id="results"></p>
+    <script>
         const choices = ["Bear", "Ninja", "Hunter"];
+        //store game choices in array
 
         let uname = prompt("Welcome to Bear Ninja Hunter! Please enter your name to get started:");
         //ask for username
-        let amessage = `Hi ${uname}! Let's play!`;
-        alert(amessage);
-        //greet player
 
-        let playAgain = "Yes";
-        let output = "";
+        if (uname === null || uname.trim() === "") {
+            alert("No name entered. Please refresh the page and enter a valid name.");
+        } else {
+            let amessage = `Hi ${uname}! Let's play!`;
+            alert(amessage);
+            //greet player
 
-        while (playAgain === "Yes") {
-        let uchoice = prompt("Who are you: Bear, Ninja, or Hunter?");
-        uchoice = uchoice.charAt(0).toUpperCase() + uchoice.slice(1).toLowerCase();
-        //ask for player choice and fix for upper case or lower case in the input
+            let playAgain = "Yes";
+            let output = "";
+
+            while (playAgain.toLowerCase() === "yes") {
+                let uchoice = prompt("Who are you: Bear, Ninja, or Hunter?");
+                //ask for player choice
+
+                if (uchoice === null || uchoice.trim() === "") {
+                    alert("No input received. Please enter Bear, Ninja, or Hunter.");
+                    continue;
+                }
+
+                uchoice = uchoice.charAt(0).toUpperCase() + uchoice.slice(1).toLowerCase();
+                //fix for upper case or lower case in the input
+
+                if (!choices.includes(uchoice)) {
+                    alert("Invalid input! Please type Bear, Ninja, or Hunter exactly.");
+                    continue;
+                }
+
+                let compchoice = choices[Math.floor(Math.random() * choices.length)];
+                //randomize computer choice
+
+                let message = "";
+
+                switch (uchoice) {
+                    case "Bear":
+                        message = compchoice === "Bear" ? "It's a tie!!" :
+                                  compchoice === "Ninja" ? "You win!!" : "You lose!!";
+                        break;
+                    case "Ninja":
+                        message = compchoice === "Bear" ? "You lose!!" :
+                                  compchoice === "Ninja" ? "It's a tie!!" : "You win!!";
+                        break;
+                    case "Hunter":
+                        message = compchoice === "Bear" ? "You win!!" :
+                                  compchoice === "Ninja" ? "You lose!!" : "You lose!!";
+                        break;
+                    default:
+                        message = "Invalid choice!";
+                }
+                //decide the outcome of the game
 
 
+                output += `${uname}, you picked ${uchoice}!<br>The computer chose ${compchoice}<br>${message}<br><br>`;
+                document.getElementById("results").innerHTML = output;
+                //print on the webpage
 
-        let compchoice = choices[Math.floor(Math.random() * choices.length)];
-        //randomize computer choice
+                console.log(`${uname}, you picked ${uchoice}!`); 
+                console.log(`The computer picked ${compchoice}`);
+                console.log(`${message}`);
+                //print on console
 
-        let message = "";
+                playAgain = prompt("Do you want to play again? Type Yes or No:");
+                //ask to play again
 
-        switch (uchoice) {
-        case "Bear":
-          message = compchoice === "Bear" ? "It's a tie!!" :
-                    compchoice === "Ninja" ? "You win!!" : "You lose!!";
-          break;
-        case "Ninja":
-          message = compchoice === "Bear" ? "You lose!!" :
-                    compchoice === "Ninja" ? "It's a tie!!" : "You win!!";
-          break;
-        case "Hunter":
-          message = compchoice === "Bear" ? "You win!!" :
-                    compchoice === "Ninja" ? "You lose!!" : "You lose!!";
-          break;
-        default:
-          message = "Invalid choice!";
-      }
-      //decide the outcome of the game
-
-
-
-        output += `${uname}, you picked ${uchoice}!<br>The computer chose ${compchoice}<br>${message}<br>`;
-        document.getElementById("results").innerHTML = output;
-        //print on the webpage
-
-        console.log(`${uname}, you picked ${uchoice}!`); 
-        console.log(`The computer picked ${compchoice}`)
-        console.log(`${message}`)
-        //print on console
-
-        playAgain = prompt("Do you want to play again? Type Yes or No:");
-        //ask to play again
-
-
-    }
+                if (playAgain === null || playAgain.toLowerCase() !== "yes") {
+                    alert("Thanks for playing! Game over.");
+                    break;
+                }
+            }
+        }
+    
     </script>
 </body>
 
