@@ -9,44 +9,42 @@
 </head>
 
 <body>
-    <p id="results"></p>
-
+        <p id="results"></p>
 
     <script>
         const choices = ["Bear", "Ninja", "Hunter"];
         let uname = prompt("Welcome to Bear Ninja Hunter! Please enter your name to get started:");
-        //ask for username
+        // ask for username
 
         if (uname === null || uname.trim() === "") {
             alert("Invalid Entry. Please press F5 to try again.");
         } else {
             let output = "";
-            let playAgain = "Yes"; 
-            
+            let playAgain = "Yes";
 
             alert(`Hi ${uname}! Let's play!`);
-            //greet palyer
+            // greet player
 
             while (playAgain.toLowerCase() === "yes") {
                 let uchoice = prompt("Who are you: Bear, Ninja, or Hunter?");
-                //ask for playerchoice
+                // ask for player choice
 
                 if (uchoice === null || uchoice.trim() === "") {
                     alert("Invalid Entry. Please press F5 to try again.");
                     break;
                 }
-                //case if nothign is typed
+                // case if nothing is typed
 
-                uchoice = uchoice.charAt(0).toUpperCase() + uchoice.slice(1).toLowerCase(); 
+                uchoice = uchoice.charAt(0).toUpperCase() + uchoice.slice(1).toLowerCase();
 
                 if (!choices.includes(uchoice)) {
                     alert("Invalid entry, please press F5 to try again.");
                     break;
                 }
-                //case if entry is invalid
+                // case if entry is invalid
 
                 let compchoice = choices[Math.floor(Math.random() * choices.length)];
-                //randomize computer choice
+                // randomize computer choice
                 let message = "";
 
                 switch (uchoice) {
@@ -63,22 +61,24 @@
                                   compchoice === "Ninja" ? "You lose!!" : "You lose!!";
                         break;
                 }
-                //outcomes
+                // outcomes
 
                 output += `${uname}, you picked ${uchoice}!<br>The computer chose ${compchoice}.<br>${message}<br><br>`;
                 document.getElementById("results").innerHTML = output;
                 console.log(`${uname}, you picked ${uchoice}!`);
                 console.log(`The computer picked ${compchoice}`);
                 console.log(`${message}`);
-                //display messages
+                // display messages
 
                 playAgain = prompt("Do you want to play again? Type Yes or No:");
-                //ask to play again
+                // ask to play again
 
+                if (playAgain === null || playAgain.toLowerCase() !== "yes") {
+                    alert("Thanks for playing! Game over.");
+                    break;
                 }
             }
         }
-
     </script>
 </body>
 
