@@ -13,10 +13,12 @@
    
 
         <p id="results"></p>
+        //display the results
 
     <script>
         const choices = ["Bear", "Ninja", "Hunter"];
         let uname = prompt("Welcome to Bear Ninja Hunter! Please enter your name to get started:");
+        //ask for username
 
         if (uname === null || uname.trim() === "") {
             alert("No name entered. Please press F5 to try again.");
@@ -67,8 +69,6 @@
 
                 playAgain = prompt("Do you want to play again? Type Yes or No:");
 
-                if (playAgain === null || playAgain.toLowerCase() !== "yes") {
-                    alert("Thanks for playing! Game over.");
                     break;
                 }
             }
