@@ -21,20 +21,24 @@
         //ask for username
 
         if (uname === null || uname.trim() === "") {
-            alert("No name entered. Please press F5 to try again.");
+            alert("Invalid Entry. Please press F5 to try again.");
         } else {
             let output = "";
             let playAgain = "Yes"; 
+            
 
             alert(`Hi ${uname}! Let's play!`);
+            //greet palyer
 
             while (playAgain.toLowerCase() === "yes") {
                 let uchoice = prompt("Who are you: Bear, Ninja, or Hunter?");
+                //ask for playerchoice
 
                 if (uchoice === null || uchoice.trim() === "") {
-                    alert("No input received. Please press F5 to try again.");
+                    alert("Invalid Entry. Please press F5 to try again.");
                     break;
                 }
+                //case if nothign is typed
 
                 uchoice = uchoice.charAt(0).toUpperCase() + uchoice.slice(1).toLowerCase(); 
 
@@ -42,8 +46,10 @@
                     alert("Invalid entry, please press F5 to try again.");
                     break;
                 }
+                //case if entry is invalid
 
                 let compchoice = choices[Math.floor(Math.random() * choices.length)];
+                //randomize computer choice
                 let message = "";
 
                 switch (uchoice) {
@@ -60,14 +66,17 @@
                                   compchoice === "Ninja" ? "You lose!!" : "You lose!!";
                         break;
                 }
+                //outcomes
 
                 output += `${uname}, you picked ${uchoice}!<br>The computer chose ${compchoice}.<br>${message}<br><br>`;
                 document.getElementById("results").innerHTML = output;
                 console.log(`${uname}, you picked ${uchoice}!`);
                 console.log(`The computer picked ${compchoice}`);
                 console.log(`${message}`);
+                //display messages
 
                 playAgain = prompt("Do you want to play again? Type Yes or No:");
+                //ask to play again
 
                     break;
                 }
